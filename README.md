@@ -5,3 +5,10 @@ This assumes that the input text file contains one article title per line.
 
 The code can be run like
 `python score_headlines.py data/headlines_chicagotribune_2025-07-07.txt chicagotribune`
+
+The API can be run with 
+`uvicorn score_headlines_api:app --reload --port 8010`
+
+There is also a streamlit UI app that can be run with
+`streamlit run streamlit_app.py --server.port 9010`
+
