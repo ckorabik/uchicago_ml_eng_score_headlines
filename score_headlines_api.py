@@ -13,13 +13,13 @@ logger = logging.getLogger(__name__)
 app = FastAPI()
 
 
-model = SentenceTransformer("all-MiniLM-L6-v2")  # or your custom model
+model = SentenceTransformer("all-MiniLM-L6-v2")
+clf = joblib.load("models/svm.joblib")
 logger.info("Model loaded successfully")
 
 
 def classify_headlines(headlines_list):
     """Classify headlines from a file."""
-    clf = joblib.load("models/svm.joblib")
     predictions = [model.encode(headline) for headline in headlines_list]
     predictions = []
     for headline in headlines_list:
@@ -52,6 +52,3 @@ def score_headlines(client_info: ClientData):
     except Exception as e:
         logger.error("Error processing item: %s", e)
         raise HTTPException(status_code=500, detail="Internal Server Error") from e
-
-
-# fastapi dev score_headlines_api.py
