@@ -19,10 +19,10 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
-            docker pull ${{ vars.DOCKER_USERNAME }}/fastapi-streamlit:latest
-            docker stop ${{ vars.DOCKER_USERNAME }}/fastapi-streamlit || true
-            docker rm ${{ vars.DOCKER_USERNAME }}/fastapi-streamlit || true
-            docker run -d --rm -p 8010:8010 -p 9010:9010 ${{ vars.DOCKER_USERNAME }}/fastapi-streamlit:latest
+            docker pull ${{ vars.DOCKER_USERNAME }}/final_app:latest
+            docker stop ${{ vars.DOCKER_USERNAME }}/final_app || true
+            docker rm ${{ vars.DOCKER_USERNAME }}/final_app || true
+            docker run -d -p 8010:8010 ${{ vars.DOCKER_USERNAME }}/final_app:latest
 
 # The final block "logs on" to the remote server
 # - gets the latest docker image from the repository

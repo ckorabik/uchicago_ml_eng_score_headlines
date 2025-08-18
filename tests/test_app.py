@@ -1,9 +1,5 @@
-"""Test streamlit app."""
+# Run the tests with: pytest tests/test_app.py
+from ..app import add_numbers
 
-import pytest
-from app.score_headlines_api import classify_headlines
-
-
-def test_app():
-    results = classify_headlines(["Headline 1", "Headline 2"])
-    assert results == ["Neutral", "Neutral"]
+def test_add_numbers():
+    assert 3 == add_numbers(1,2)
