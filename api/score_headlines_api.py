@@ -14,7 +14,7 @@ app = FastAPI()
 
 
 model = SentenceTransformer("all-MiniLM-L6-v2")
-clf = joblib.load("models/svm.joblib")
+clf = joblib.load("../models/svm.joblib")
 logger.info("Model loaded successfully")
 
 
