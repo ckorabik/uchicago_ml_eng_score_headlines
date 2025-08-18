@@ -14,17 +14,16 @@ app = FastAPI()
 
 
 model = SentenceTransformer("all-MiniLM-L6-v2")
-clf = joblib.load("../models/svm.joblib")
+clf = joblib.load("models/svm.joblib")
 logger.info("Model loaded successfully")
 
 
 def classify_headlines(headlines_list):
     """Classify headlines from a file."""
-    predictions = [model.encode(headline) for headline in headlines_list]
     predictions = []
     for headline in headlines_list:
         encoded = model.encode(headline)
-        predictions.append(clf.predict([encoded])[0])
+        predictions.append(clf.predict(encoded)[0])
     return predictions
 
 

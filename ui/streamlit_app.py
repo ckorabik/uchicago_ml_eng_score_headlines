@@ -33,7 +33,7 @@ if any(st.session_state.headlines):
 # Submit button
 if st.button("Score"):
     try:
-        api_url = "http://localhost:8010/score_headlines"
+        api_url = "http://0.0.0.0:8010/score_headlines"
         user_input = st.session_state.headlines
         payload = {"headlines": user_input}
 
