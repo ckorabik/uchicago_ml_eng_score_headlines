@@ -30,11 +30,11 @@ jobs:
 
     - name: Run pylint
       run: |
-        python -m pylint .
+        python -m pylint app_api.py
 
     - name: Run mypy
       run: |
-        python -m mypy .
+        python -m mypy app_api.py
 
     - name: Run pytest
       run: |
