@@ -22,4 +22,4 @@ jobs:
             docker pull ${{ secrets.DOCKER_USERNAME }}/final_app:latest
             docker stop final_app || true
             docker rm final_app || true
-            docker run -d --name final_app -p 8010:8010 -v /opt/assignment_outputs:/app/data ${{ secrets.DOCKER_USERNAME }}/final_app:latest
+            docker run -d --name final_app -p 8010:8010 ${{ secrets.DOCKER_USERNAME }}/final_app:latest
