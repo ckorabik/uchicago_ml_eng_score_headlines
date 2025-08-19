@@ -23,11 +23,3 @@ jobs:
             docker stop ${{ secrets.DOCKER_USERNAME }}/final_app || true
             docker rm ${{ secrets.DOCKER_USERNAME }}/final_app || true
             docker run -d -p 8010:8010 ${{ secrets.DOCKER_USERNAME }}/final_app:latest
-
-# The final block "logs on" to the remote server
-# - gets the latest docker image from the repository
-# - stops the currently running container
-# - runs the newly downloaded image
-    # - notice that it runs it in '-d' or disconnected mode - so the container won't stop even if you log off
-    # - also notice that -v host_dir:container_dir connects the directory /opt/assignment_outputs on the internet server to your docker container, where it will shwo up as /app/data
-    #    - When you write to /app/data inside your docker image, it will actually be written to the shared directory
